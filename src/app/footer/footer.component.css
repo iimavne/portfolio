@@ -1,0 +1,21 @@
+.bg-pink-light {
+  background-color: #f8d7da;
+}
+
+.text-pink {
+  color: #d63384;
+}
+
+.butterfly-footer {
+  width: 30px;
+  position: absolute;
+  right: 10px;
+  top: -10px;
+  animation: float 5s infinite alternate;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(10deg); }
+  100% { transform: translateY(0) rotate(-10deg); }
+}

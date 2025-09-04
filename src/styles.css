@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --pink-light: #f8d7da;
+  --pink-medium: #d63384;
+  --purple-light: #d6c4f0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--pink-light);
+}
+
+.navbar-brand, .nav-link {
+  color: var(--pink-medium) !important;
+}
+
+.btn-primary {
+  background-color: var(--pink-medium);
+  border-color: var(--pink-medium);
+  border-radius: 50px;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
