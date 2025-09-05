@@ -1,33 +1,48 @@
 <div class="container py-5 project-detail">
+
+  <!-- Bouton retour -->
   <a routerLink="/projects" class="btn btn-light mb-4">← Retour aux projets</a>
 
   <div class="card shadow rounded-4 p-4 mb-4 project-card">
+
+    <!-- Titre -->
     <h2 class="text-center text-pink mb-3">{{ project.title }}</h2>
 
-    <!-- Vidéo avant l'image -->
+    <!-- Vidéo ou image -->
     <div *ngIf="project.videoUrl" class="video-container mb-3">
       <iframe [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
     <img *ngIf="!project.videoUrl" [src]="project.thumbnail" class="img-fluid rounded-4 mb-3" alt="{{ project.title }}">
 
+    <!-- Description courte et détaillée -->
     <p class="text-center text-muted lead">{{ project.shortDescription }}</p>
     <p class="mt-3">{{ project.description }}</p>
 
+    <!-- Infos principales : Contexte, Durée, Méthodes -->
     <div class="row mt-4 g-3 text-center">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="info-card p-4 rounded-4 shadow-sm">
           <h5>📌 Contexte</h5>
           <p>{{ project.context }}</p>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <div class="info-card p-4 rounded-4 shadow-sm">
           <h5>⏳ Durée</h5>
           <p>{{ project.duration }}</p>
         </div>
       </div>
+      <div class="col-md-4" *ngIf="project.methodes">
+        <div class="info-card p-4 rounded-4 shadow-sm">
+          <h5>📝 Méthodes</h5>
+          <ul class="list-unstyled mb-0">
+            <li *ngFor="let m of project.methodes">- {{ m }}</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
+    <!-- Technologies utilisées -->
     <div class="mt-5">
       <h5 class="text-center mb-3">🛠️ Technologies utilisées</h5>
       <div class="d-flex flex-wrap gap-3 justify-content-center">
@@ -38,10 +53,12 @@
       </div>
     </div>
 
+    <!-- Lien projet -->
     <div class="text-center mt-5" *ngIf="project.siteUrl">
       <a [href]="project.siteUrl" target="_blank" class="btn btn-pink rounded-pill btn-lg">
         🔗 Voir le projet
       </a>
     </div>
+
   </div>
 </div>
