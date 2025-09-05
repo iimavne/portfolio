@@ -4,16 +4,17 @@
   <p>GitHub : <a href="https://github.com/" target="_blank">Mon GitHub</a></p>
   <p>LinkedIn : <a href="#" target="_blank">Mon LinkedIn</a></p>
 
-  <form class="mt-4 mx-auto" style="max-width:500px;">
+  <form action="https://formspree.io/f/movnpzbv" method="POST" class="mt-4 mx-auto" style="max-width:500px;">
     <div class="mb-3">
-      <input type="text" class="form-control rounded-pill" placeholder="Votre nom" />
+      <input type="text" name="name" class="form-control rounded-pill" placeholder="Votre nom" required />
     </div>
     <div class="mb-3">
-      <input type="email" class="form-control rounded-pill" placeholder="Votre email" />
+      <input type="email" name="email" class="form-control rounded-pill" placeholder="Votre email" required />
     </div>
     <div class="mb-3">
-      <textarea class="form-control rounded" rows="4" placeholder="Votre message"></textarea>
+      <textarea name="message" class="form-control rounded" rows="4" placeholder="Votre message" required></textarea>
     </div>
-    <button class="btn btn-primary rounded-pill">Envoyer</button>
+    <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
   </form>
+
 </section>
