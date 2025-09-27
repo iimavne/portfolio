@@ -1,21 +1,29 @@
-.bg-pink-light {
-  background-color: #f8d7da;
-}
-
-.text-pink {
+.footer {
+  background-color: #fde3ed; /* même couleur que la navbar */
+  border-top: 1px solid #f8c1d3;
   color: #d63384;
+  width: 100%;
+  padding: 0.75rem 1rem;
 }
 
-.butterfly-footer {
-  width: 30px;
-  position: absolute;
-  right: 10px;
-  top: -10px;
-  animation: float 5s infinite alternate;
+.footer p {
+  margin: 0;
+  font-size: 0.9rem;
 }
 
-@keyframes float {
-  0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(10deg); }
-  100% { transform: translateY(0) rotate(-10deg); }
+.footer-icon {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+@media (max-width: 768px) {
+  .footer p {
+    font-size: 0.8rem;
+  }
 }

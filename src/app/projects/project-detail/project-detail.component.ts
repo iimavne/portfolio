@@ -33,15 +33,26 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   getTechLogo(tech: string): string {
-    const map: any = {
+    const map: Record<string, string> = {
       Angular: 'angularjs',
       Bootstrap: 'bootstrap',
       TypeScript: 'typescript',
       HTML: 'html5',
       CSS: 'css3',
-      JavaScript: 'javascript'
+      JavaScript: 'javascript',
+      PHP: 'php',
+      WP: 'wordpress',
     };
+
     const name = map[tech] || tech.toLowerCase();
-    return `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`;
+
+    // Logo devicon
+    const deviconURL = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`;
+
+    // Logo de fallback si le logo n'existe pas
+    const fallbackURL = 'https://cdn-icons-png.flaticon.com/512/5968/5968705.png';
+
+    return deviconURL || fallbackURL;
   }
+
 }

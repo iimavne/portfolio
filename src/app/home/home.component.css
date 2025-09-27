@@ -1,25 +1,73 @@
-.bg-pink-light {
-  background-color: #f8d7da;
+/* Couleurs principales */
+.bg-pink-light { background-color: #fef1f4; }
+.text-pink { color: #d63384; }
+
+/* Section Hero */
+.hero h1 {
+  font-size: 3rem;
+  letter-spacing: 1px;
+}
+.hero p.lead {
+  max-width: 750px;
+  line-height: 1.6;
 }
 
-.text-pink {
-  color: #d63384;
+/* Bouton CV */
+.btn-primary {
+  background-color: #d63384;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #c2185b;
 }
 
-.butterfly {
+/* Compétences */
+.skills-section {
+  background-color: rgba(255,255,255,0.1); /* légèrement différent du rose clair */
+  border-top: 1px solid #f8c1d3;
+  border-bottom: 1px solid #f8c1d3;
+}
+
+.skills-container h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  margin-bottom: 1rem;
+}
+
+.skills i {
+  font-size: 3rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+
+.skills i:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  border-radius: 10px;
+}
+
+.skill-logo {
   width: 50px;
-  position: absolute;
-  animation: fly 6s infinite alternate;
+  height: 50px;
+  object-fit: contain;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-.butterfly:nth-child(2) {
-  left: 80%;
-  top: 10%;
-  animation-duration: 8s;
+.skill-logo:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
 }
 
-@keyframes fly {
-  0% { transform: translateY(0) translateX(0) rotate(0deg); }
-  50% { transform: translateY(-20px) translateX(20px) rotate(15deg); }
-  100% { transform: translateY(0) translateX(40px) rotate(-15deg); }
+.hero p.lead small {
+  display: block;
+  margin-top: 0.5rem;
 }

@@ -1,14 +1,23 @@
 :root {
-  --pink-light: #f8d7da;
+  --pink-light: #fef1f4; /* rose clair de ta page Home */
   --pink-medium: #d63384;
   --purple-light: #d6c4f0;
 }
 
+/* Fond global pour toutes les pages */
 body {
   font-family: 'Poppins', sans-serif;
+  background-color: var(--pink-light); /* rose clair */
+  margin: 0;
+  padding: 0;
+}
+
+/* Si tu as des sections avec bg-light ou autre, tu peux les uniformiser */
+section, .container {
   background-color: var(--pink-light);
 }
 
+/* Garde tes autres styles */
 .navbar-brand, .nav-link {
   color: var(--pink-medium) !important;
 }
@@ -22,4 +31,18 @@ body {
 .card {
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.bg-pink-light {
+  background-color: var(--pink-light); /* utilise la variable globale */
+}
+
+body, app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1; /* prend tout l’espace disponible */
 }

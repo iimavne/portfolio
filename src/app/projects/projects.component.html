@@ -1,13 +1,14 @@
 <div class="container py-5">
-  <h2 class="text-center mb-4 text-pink">🌸 Mes Projets</h2>
+  <h2 class="text-center mb-5 text-pink">Mes Projets</h2>
+
   <div class="row g-4">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects">
+    <div class="col-12 col-md-6" *ngFor="let project of projects">
       <div class="card shadow project-card h-100">
         <img [src]="project.thumbnail" class="card-img-top project-img" alt="{{project.title}}">
         <div class="card-body text-center">
           <h5 class="card-title">{{project.title}}</h5>
           <p class="card-text">{{project.shortDescription}}</p>
-          <a [routerLink]="['/projects', project.id]" class="btn btn-pink rounded-pill mt-2">
+          <a [routerLink]="['/projects', project.id]" class="btn btn-pink rounded-pill mt-3 px-4">
             Voir plus
           </a>
         </div>
