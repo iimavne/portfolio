@@ -26,7 +26,6 @@
             ],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "https://cdn.jsdelivr.net/gh/devicons/devicon@2.16.0/devicon.min.css",
               "src/styles.css"
             ],
 
