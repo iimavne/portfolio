@@ -1,31 +1,59 @@
+/* projects.component.css */
+
+.text-pink {
+  color: #d63384;
+}
+
 .project-card {
-  border-radius: 1rem;
+  border: none;
+  border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
 .project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  transform: translateY(-8px);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1) !important;
 }
 
 .project-img {
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  height: 250px;
-  object-fit: cover;
+  height: 220px;
+  object-fit: cover; /* Assure que l'image remplit l'espace sans se déformer */
+  transition: transform 0.3s ease;
 }
 
-.btn-pink {
-  background-color: #d291bc;
-  border: none;
-  color: white;
-  transition: 0.3s;
+.project-card:hover .project-img {
+  transform: scale(1.05); /* Effet de zoom sur l'image */
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* Style des "tags" de technologies */
+.tech-tags .badge {
+  background-color: #fbe6f2; /* Rose très clair */
+  color: #d63384; /* Texte rose foncé */
   font-weight: 500;
-  padding: 0.5rem 1.5rem;
+  padding: 0.4em 0.8em;
+  font-size: 0.75rem;
 }
 
-.btn-pink:hover {
-  background-color: #b36f9a;
+/* Bouton principal */
+.btn-primary {
+  background-color: #d63384;
+  border-color: #d63384;
+  font-weight: 500;
+}
+.btn-primary:hover {
+  background-color: #c22b74;
+  border-color: #c22b74;
 }
 
-.text-pink { color: #d63384; }
+/* Liens externes (icônes) */
+.project-links a {
+  transition: color 0.3s ease;
+}
+.project-links a:hover {
+  color: #d63384 !important; /* Devient rose au survol */
+}

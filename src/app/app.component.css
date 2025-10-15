@@ -1,0 +1,18 @@
+/* src/styles.css */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* On applique Flexbox à la racine de l'app Angular */
+body, app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Classe pour le conteneur principal qui doit s'étirer */
+.main-content {
+  flex-grow: 1; /* C'est cette ligne qui pousse le footer ! */
+}

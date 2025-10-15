@@ -1,0 +1,80 @@
+/* Définition des couleurs pour une maintenance facile */
+:root {
+  --pink-color: #e91e63; /* Adaptez cette couleur si besoin */
+  --pink-light-bg: #fce4ec;
+  --pink-dark-text: #880e4f;
+}
+
+.skills-section {
+  background-color: #fdf8fa; /* Un fond très légèrement rosé */
+}
+
+.text-pink {
+  color: var(--pink-color);
+}
+
+/* Style de la carte qui contient les compétences */
+.skill-card {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card h3 {
+  margin-bottom: 1.5rem;
+}
+
+/* Grille pour aligner les icônes */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem; /* Espace entre les icônes */
+}
+
+/* Style pour chaque compétence (icône + nom) */
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+  transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+  transform: scale(1.1);
+}
+
+.skill-item i {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item .skill-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+.skill-item small {
+  font-size: 0.8rem;
+}
+
+/* Style pour les badges de la dernière carte */
+.skill-badge {
+  background-color: var(--pink-light-bg);
+  color: var(--pink-dark-text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.5em 1em;
+}

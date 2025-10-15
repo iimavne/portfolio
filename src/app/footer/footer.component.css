@@ -1,7 +1,14 @@
+/* Utiliser :root permet de définir des variables de couleur réutilisables */
+:root {
+  --footer-bg-color: #fde3ed;
+  --footer-border-color: #f8c1d3;
+  --footer-text-color: #d63384;
+}
+
 .footer {
-  background-color: #fde3ed; /* même couleur que la navbar */
-  border-top: 1px solid #f8c1d3;
-  color: #d63384;
+  background-color: var(--footer-bg-color);
+  border-top: 1px solid var(--footer-border-color);
+  color: var(--footer-text-color);
   width: 100%;
   padding: 0.75rem 1rem;
 }
@@ -19,9 +26,10 @@
 
 .footer-icon:hover {
   transform: scale(1.2);
-  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.15));
 }
 
+/* Votre media query est parfaite */
 @media (max-width: 768px) {
   .footer p {
     font-size: 0.8rem;

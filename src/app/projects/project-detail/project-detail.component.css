@@ -1,40 +1,45 @@
+:host {
+  display: block;
+  background-color: #fdf6f9;
+}
+
 .text-pink {
-  color: #d291bc;
+  color: #d63384;
 }
 
-.btn-pink {
-  background-color: #d291bc;
-  border: none;
-  color: white;
-  transition: 0.3s;
+.project-title {
+  font-weight: 700;
+  font-size: 2.5rem;
 }
 
-.btn-pink:hover {
-  background-color: #b36f9a;
+.section-title {
+  font-weight: 600;
 }
 
-/* Carte principale */
-.project-card {
-  border-radius: 2rem;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+/* --- CONTENEUR MÉDIA (IMAGE/VIDÉO/CARROUSEL) --- */
+.media-container {
+  background-color: #f8f9fa;
+  /* On limite la largeur sur les grands écrans pour un meilleur équilibre */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+/* Style commun pour l'image unique et les images du carrousel */
+.media-container img,
+.media-container .carousel {
+  /* MODIFIÉ : On utilise vh au lieu de px */
+  max-height: 65vh;
+  width: 100%;
+  object-fit: cover;
 }
 
-/* Vidéo responsive */
-.video-container {
+.video-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
-  height: 0;
-  overflow: hidden;
-  border-radius: 1.5rem;
+  width: 100%;
+  padding-top: 56.25%;
 }
-
-.video-container iframe {
+.video-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -42,56 +47,73 @@
   height: 100%;
 }
 
-/* Cartes infos principales */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: rgba(214, 51, 132, 0.7);
+  border-radius: 50%;
+  padding: 1.2rem;
+  background-size: 50%;
+}
+.carousel-indicators [data-bs-target] {
+  background-color: #d63384;
+}
+
+/* --- SECTIONS DE CONTENU --- */
+.description-box .lead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
 .info-card {
-  background-color: #ffe6f0;
-  transition: transform 0.3s;
-  padding: 2rem;
-}
-
-.info-card h5 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.2rem;
-}
-
-.info-card p {
-  font-size: 1.1rem;
+  background-color: #fff;
+  border: 1px solid #fdecf5;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .info-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 0.8rem 2rem rgba(214, 51, 132, 0.12);
 }
 
-/* Technologies */
 .tech-badge {
-  background-color: #f8d7f2;
+  background-color: #fff;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
+  gap: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 50px;
+  border: 1px solid #fdecf5;
   font-weight: 500;
-  transition: transform 0.2s;
+  color: #343a40;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tech-badge:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 0.3rem 1rem rgba(214, 51, 132, 0.1);
 }
 
 .tech-logo {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .info-card {
-    padding: 1rem;
-  }
-  .tech-logo {
-    width: 22px;
-    height: 22px;
-  }
+/* --- BOUTONS --- */
+.cta-button, .btn-primary {
+  background-color: #d63384;
+  border-color: #d63384;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover, .btn-primary:hover {
+  background-color: #c22b74;
+  border-color: #c22b74;
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0.5rem 1.5rem rgba(214, 51, 132, 0.25) !important;
+}
+
+.btn-light {
+  background-color: #fff;
+  border: 1px solid #eee;
 }

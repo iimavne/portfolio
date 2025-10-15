@@ -1,20 +1,55 @@
-<section class="container py-5 text-center">
-  <h2 class="mb-4 text-pink">📬 Me Contacter</h2>
-  <p>Email : <a href="mailto:mahssiniimane@gmail.com">mahssiniimane@gmail.com</a></p>
-  <p>GitHub : <a href="https://github.com/" target="_blank">Mon GitHub</a></p>
-  <p>LinkedIn : <a href="#" target="_blank">Mon LinkedIn</a></p>
+<section class="contact-section py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12 col-lg-10">
 
-  <form action="https://formspree.io/f/movnpzbv" method="POST" class="mt-4 mx-auto" style="max-width:500px;">
-    <div class="mb-3">
-      <input type="text" name="name" class="form-control rounded-pill" placeholder="Votre nom" required />
-    </div>
-    <div class="mb-3">
-      <input type="email" name="email" class="form-control rounded-pill" placeholder="Votre email" required />
-    </div>
-    <div class="mb-3">
-      <textarea name="message" class="form-control rounded" rows="4" placeholder="Votre message" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary rounded-pill">Envoyer</button>
-  </form>
+        <div class="row g-5">
+          <h2 class="text-center text-pink mb-3">📬 Me Contacter</h2>
 
+          <div class="col-lg-5 contact-info">
+            <p class="text-muted mb-4">
+              Un projet, une question ou juste envie de discuter ? N'hésitez pas à m'envoyer un message !
+            </p>
+
+            <div class="d-flex flex-column gap-3">
+              <a href="mailto:mahssiniimane@gmail.com" class="info-item">
+                <i class="bi bi-envelope-fill"></i>
+                <span>mahssiniimane@gmail.com</span>
+              </a>
+              <a href="https://github.com/iimavne" target="_blank" class="info-item">
+                <i class="bi bi-github"></i>
+                <span>github.com/iimavne</span>
+              </a>
+              <a href="https://linkedin.com/in/imane-mahssini-992494282" target="_blank" class="info-item">
+                <i class="bi bi-linkedin"></i>
+                <span>Mon profil LinkedIn</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-7">
+            <form action="https://formspree.io/f/movnpzbv" method="POST">
+              <div class="form-floating mb-3">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" required>
+                <label for="name">Votre nom</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <input type="email" name="email" class="form-control" id="email" placeholder="Votre email" required>
+                <label for="email">Votre email</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <textarea name="message" class="form-control" placeholder="Votre message" id="message" style="height: 120px" required></textarea>
+                <label for="message">Votre message</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-100 py-2">Envoyer le message</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </section>

@@ -1,70 +1,53 @@
-<div class="container py-5 project-detail">
+<div class="container py-5 project-detail" *ngIf="project">
 
-  <div class="card shadow rounded-4 p-4 mb-4 project-card">
+  <div class="d-flex align-items-center mb-4">
+    <a routerLink="/projects" class="btn btn-light rounded-circle p-2 lh-1 me-3 shadow-sm">
+      <i class="bi bi-arrow-left fs-5"></i>
+    </a>
+    <h1 class="project-title text-pink mb-0">{{ project.title }}</h1>
+  </div>
 
-    <!-- Titre -->
-    <h2 class="text-center text-pink mb-3">{{ project.title }}</h2>
-
-    <!-- Vidéo ou image -->
-    <div *ngIf="project.videoUrl" class="video-container mb-3">
+  <div class="media-container card shadow-sm border-0 rounded-4 overflow-hidden mb-5">
+    <div *ngIf="project.videoUrl" class="video-wrapper">
       <iframe [src]="safeVideoUrl" frameborder="0" allowfullscreen></iframe>
     </div>
-    <img *ngIf="!project.videoUrl" [src]="project.thumbnail" class="img-fluid rounded-4 mb-3" alt="{{ project.title }}">
-
-    <!-- Description courte et détaillée -->
-    <p class="text-center text-muted lead">{{ project.shortDescription }}</p>
-    <div class="p-4 my-4 rounded-4 shadow-sm bg-light description-box">
-      <h4 class="mb-3 text-pink">📖 Description détaillée</h4>
-      <ul class="list-unstyled">
-        <li>✅ {{ project.description }}</li>
-        <!-- si tu prépares des descriptions déjà découpées -->
-      </ul>
-    </div>
-
-
-    <!-- Infos principales : Contexte, Durée, Méthodes -->
-    <div class="row mt-4 g-3 text-center">
-      <div class="col-md-4">
-        <div class="info-card p-4 rounded-4 shadow-sm">
-          <h5>📌 Contexte</h5>
-          <p>{{ project.context }}</p>
+    <div *ngIf="!project.videoUrl && project.images.length > 1" #projectCarousel id="projectCarousel" class="carousel slide">
+      <div class="carousel-indicators">
+        <button *ngFor="let image of project.images; let i = index" type="button" data-bs-target="#projectCarousel" [attr.data-bs-slide-to]="i" [class.active]="i === 0"></button>
+      </div>
+      <div class="carousel-inner">
+        <div *ngFor="let image of project.images; let i = index" class="carousel-item" [class.active]="i === 0">
+          <img [src]="image" class="d-block w-100" [alt]="project.title + ' - Visuel ' + (i + 1)">
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="info-card p-4 rounded-4 shadow-sm">
-          <h5>⏳ Durée</h5>
-          <p>{{ project.duration }}</p>
-        </div>
-      </div>
-      <div class="col-md-4" *ngIf="project.methodes">
-        <div class="info-card p-4 rounded-4 shadow-sm">
-          <h5>📝 Méthodes</h5>
-          <ul class="list-unstyled mb-0">
-            <li *ngFor="let m of project.methodes">- {{ m }}</li>
-          </ul>
-        </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+      <button class="carousel-control-next" type="button" data-bs-target="#projectCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
     </div>
-
-    <!-- Technologies utilisées -->
-    <div class="mt-5">
-      <h5 class="text-center mb-3">🛠️ Technologies utilisées</h5>
-      <div class="d-flex flex-wrap gap-3 justify-content-center">
-        <div *ngFor="let tech of project.technologies" class="tech-badge d-flex align-items-center p-2 rounded-pill shadow-sm">
-          <img [src]="getTechLogo(tech)" [alt]="tech" class="tech-logo me-2" />
-          <span>{{ tech }}</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Lien projet -->
-    <div class="text-center mt-5" *ngIf="project.siteUrl">
-      <a [href]="project.siteUrl" target="_blank" class="btn btn-pink rounded-pill btn-lg">
-        🔗 Voir le projet
-      </a>
-    </div>
-
+    <img *ngIf="!project.videoUrl && project.images.length === 1" [src]="project.images[0]" class="img-fluid" [alt]="project.title">
   </div>
-  <!-- Bouton retour -->
-  <a routerLink="/projects" class="btn btn-light mb-4">← Retour aux projets</a>
+
+  <div class="description-box bg-white p-4 p-md-5 rounded-4 shadow-sm mb-5">
+    <h3 class="section-title text-pink mb-3">📖 À propos du projet</h3>
+    <p class="lead text-muted">{{ project.description }}</p>
+  </div>
+
+  <div class="row g-4 text-center">
+    <div class="col-md-4"><div class="info-card h-100 p-4 rounded-4"><i class="bi bi-geo-alt-fill fs-1 text-pink mb-3"></i><h5>Contexte</h5><p class="mb-0 text-muted">{{ project.context }}</p></div></div>
+    <div class="col-md-4"><div class="info-card h-100 p-4 rounded-4"><i class="bi bi-clock-history fs-1 text-pink mb-3"></i><h5>Durée</h5><p class="mb-0 text-muted">{{ project.duration }}</p></div></div>
+    <div class="col-md-4" *ngIf="project.methodes?.length"><div class="info-card h-100 p-4 rounded-4"><i class="bi bi-clipboard-data-fill fs-1 text-pink mb-3"></i><h5>Méthodes</h5><ul class="list-unstyled mb-0 text-muted"><li *ngFor="let method of project.methodes">{{ method }}</li></ul></div></div>
+  </div>
+
+  <div class="mt-5 pt-4">
+    <h3 class="text-center section-title mb-4 text-pink">🛠️ Technologies Utilisées</h3>
+    <div class="d-flex flex-wrap gap-3 justify-content-center">
+      <div *ngFor="let tech of project.technologies" class="tech-badge shadow-sm">
+        <img [src]="getTechLogo(tech)" [alt]="'Logo ' + tech" class="tech-logo" />
+        <span>{{ tech }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="text-center mt-5 pt-3" *ngIf="project.siteUrl">
+    <a [href]="project.siteUrl" target="_blank" class="btn btn-primary rounded-pill btn-lg px-5 py-3 shadow-lg cta-button"><i class="bi bi-box-arrow-up-right me-2"></i>Voir le projet en ligne</a>
+  </div>
 </div>

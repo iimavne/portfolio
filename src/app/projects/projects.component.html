@@ -1,16 +1,39 @@
 <div class="container py-5">
-  <h2 class="text-center mb-5 text-pink">Mes Projets</h2>
+  <h2 class="text-center mb-5 text-pink fw-bold">Mes Projets</h2>
 
-  <div class="row g-4">
-    <div class="col-12 col-md-6" *ngFor="let project of projects">
-      <div class="card shadow project-card h-100">
-        <img [src]="project.thumbnail" class="card-img-top project-img" alt="{{project.title}}">
-        <div class="card-body text-center">
-          <h5 class="card-title">{{project.title}}</h5>
-          <p class="card-text">{{project.shortDescription}}</p>
-          <a [routerLink]="['/projects', project.id]" class="btn btn-pink rounded-pill mt-3 px-4">
-            Voir plus
-          </a>
+  <div class="row g-4 justify-content-center">
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects">
+      <div class="card shadow-sm project-card h-100">
+
+        <a [routerLink]="['/projects', project.id]">
+          <img [src]="project.images[0]" class="card-img-top project-img" alt="Miniature du projet {{project.title}}">
+        </a>
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title fw-bold">{{project.title}}</h5>
+
+          <div class="tech-tags mb-3">
+            <span *ngFor="let tech of project.technologies" class="badge rounded-pill me-1">
+              {{ tech }}
+            </span>
+          </div>
+
+          <p class="card-text text-muted">{{project.shortDescription}}</p>
+
+          <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
+            <a [routerLink]="['/projects', project.id]" class="btn btn-primary rounded-pill px-4">
+              En savoir plus
+            </a>
+
+            <div class="project-links">
+              <a *ngIf="project.siteUrl" [href]="project.siteUrl" target="_blank" class="text-secondary fs-4 ms-2" aria-label="Voir le site">
+                <i class="bi bi-box-arrow-up-right"></i>
+              </a>
+              <a *ngIf="project.videoUrl" [href]="project.videoUrl" target="_blank" class="text-secondary fs-4 ms-2" aria-label="Voir la vidéo">
+                <i class="bi bi-camera-video-fill"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
