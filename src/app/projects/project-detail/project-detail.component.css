@@ -1,10 +1,10 @@
 :host {
   display: block;
-  background-color: #fdf6f9;
+  background-color: var(--app-pink-light, #fdf6f9); /* Utilise la variable ou une couleur par défaut */
 }
 
 .text-pink {
-  color: #d63384;
+  color: var(--app-pink, #d63384);
 }
 
 .project-title {
@@ -19,17 +19,14 @@
 /* --- CONTENEUR MÉDIA (IMAGE/VIDÉO/CARROUSEL) --- */
 .media-container {
   background-color: #f8f9fa;
-  /* On limite la largeur sur les grands écrans pour un meilleur équilibre */
-  max-width: 900px;
+  max-width: 900px; /* Limite la largeur sur les grands écrans */
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Style commun pour l'image unique et les images du carrousel */
 .media-container img,
 .media-container .carousel {
-  /* MODIFIÉ : On utilise vh au lieu de px */
-  max-height: 65vh;
+  max-height: 65vh; /* Hauteur relative à la taille de l'écran */
   width: 100%;
   object-fit: cover;
 }
@@ -37,8 +34,9 @@
 .video-wrapper {
   position: relative;
   width: 100%;
-  padding-top: 56.25%;
+  padding-top: 56.25%; /* Ratio 16:9 */
 }
+
 .video-wrapper iframe {
   position: absolute;
   top: 0;
@@ -53,8 +51,9 @@
   padding: 1.2rem;
   background-size: 50%;
 }
+
 .carousel-indicators [data-bs-target] {
-  background-color: #d63384;
+  background-color: var(--app-pink, #d63384);
 }
 
 /* --- SECTIONS DE CONTENU --- */
@@ -100,15 +99,15 @@
 
 /* --- BOUTONS --- */
 .cta-button, .btn-primary {
-  background-color: #d63384;
-  border-color: #d63384;
+  background-color: var(--app-pink, #d63384);
+  border-color: var(--app-pink, #d63384);
   font-weight: bold;
   transition: all 0.3s ease;
 }
 
 .cta-button:hover, .btn-primary:hover {
-  background-color: #c22b74;
-  border-color: #c22b74;
+  background-color: var(--app-pink-dark, #c22b74);
+  border-color: var(--app-pink-dark, #c22b74);
   transform: translateY(-3px) scale(1.03);
   box-shadow: 0 0.5rem 1.5rem rgba(214, 51, 132, 0.25) !important;
 }
@@ -116,4 +115,25 @@
 .btn-light {
   background-color: #fff;
   border: 1px solid #eee;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  .project-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .project-title {
+    font-size: 1.8rem;
+  }
+
+  .description-box {
+    padding: 1.5rem;
+  }
+
+  .info-card {
+    padding: 1.5rem !important;
+  }
 }

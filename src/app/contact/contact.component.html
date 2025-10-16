@@ -1,55 +1,84 @@
 <section class="contact-section py-5">
   <div class="container">
+    <!-- Conteneur pour l'explosion de confettis finale -->
+    <div id="confetti-container"></div>
+
     <div class="row justify-content-center">
       <div class="col-12 col-lg-10">
+        <div class="card shadow-lg border-0">
+          <div class="card-body p-4 p-md-5">
+            <h2 class="text-center mb-5 text-pink fw-bold">Me contacter</h2>
+            <div class="row g-5">
+              <!-- Colonne de gauche (Infos) -->
+              <div class="col-lg-5 contact-info">
+                <p class="text-muted mb-4">
+                  Un projet, une question ou juste envie de discuter ? N'hésitez pas à m'envoyer un message !
+                </p>
+                <div class="d-flex flex-column gap-4">
+                  <a href="mailto:mahssiniimane@gmail.com" class="info-item">
+                    <i class="bi bi-envelope-fill fs-2"></i>
+                    <span>mahssiniimane@gmail.com</span>
+                  </a>
+                  <a href="https://github.com/iimavne" target="_blank" class="info-item">
+                    <i class="bi bi-github fs-2"></i>
+                    <span>github.com/iimavne</span>
+                  </a>
+                  <a href="https://linkedin.com/in/imane-mahssini-992494282" target="_blank" class="info-item">
+                    <i class="bi bi-linkedin fs-2"></i>
+                    <span>Mon profil LinkedIn</span>
+                  </a>
+                </div>
+              </div>
 
-        <div class="row g-5">
-          <h2 class="text-center text-pink mb-3">📬 Me Contacter</h2>
+              <!-- Colonne de droite (Formulaire) -->
+              <div class="col-lg-7">
+                <form action="https://formspree.io/f/movnpzbv" method="POST">
+                  <div class="form-floating mb-3">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" required>
+                    <label for="name">Votre nom</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="email" name="email" class="form-control" id="email" placeholder="Votre email" required>
+                    <label for="email">Votre email</label>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <textarea name="message" class="form-control" placeholder="Votre message" id="message" style="height: 150px" required></textarea>
+                    <label for="message">Votre message</label>
+                  </div>
 
-          <div class="col-lg-5 contact-info">
-            <p class="text-muted mb-4">
-              Un projet, une question ou juste envie de discuter ? N'hésitez pas à m'envoyer un message !
-            </p>
-
-            <div class="d-flex flex-column gap-3">
-              <a href="mailto:mahssiniimane@gmail.com" class="info-item">
-                <i class="bi bi-envelope-fill"></i>
-                <span>mahssiniimane@gmail.com</span>
-              </a>
-              <a href="https://github.com/iimavne" target="_blank" class="info-item">
-                <i class="bi bi-github"></i>
-                <span>github.com/iimavne</span>
-              </a>
-              <a href="https://linkedin.com/in/imane-mahssini-992494282" target="_blank" class="info-item">
-                <i class="bi bi-linkedin"></i>
-                <span>Mon profil LinkedIn</span>
-              </a>
+                  <div class="position-relative mt-4">
+                    <button type="submit" class="btn btn-primary w-100 py-3 fw-bold">Envoyer le message</button>
+                    <!-- Le ruban final, qui ne s'affiche que s'il n'a pas été trouvé -->
+                    <div *ngIf="shouldShowRibbon()" class="hidden-ribbon-contact" (click)="findContactRibbon($event)">🎀</div>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-
-          <div class="col-lg-7">
-            <form action="https://formspree.io/f/movnpzbv" method="POST">
-              <div class="form-floating mb-3">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Votre nom" required>
-                <label for="name">Votre nom</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <input type="email" name="email" class="form-control" id="email" placeholder="Votre email" required>
-                <label for="email">Votre email</label>
-              </div>
-
-              <div class="form-floating mb-3">
-                <textarea name="message" class="form-control" placeholder="Votre message" id="message" style="height: 120px" required></textarea>
-                <label for="message">Votre message</label>
-              </div>
-
-              <button type="submit" class="btn btn-primary w-100 py-2">Envoyer le message</button>
-            </form>
-          </div>
-
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Le "Dossier Express" du Recruteur (caché au début) -->
+<!-- Il est placé en dehors de la section pour une meilleure gestion du style -->
+<div *ngIf="showDossier" class="dossier-overlay" (click)="closeDossier()"></div>
+
+<div *ngIf="showDossier" class="recruiter-dossier">
+  <button class="close-btn" (click)="closeDossier()" aria-label="Fermer la fenêtre">×</button>
+  <h4 class="text-pink">Félicitations !</h4>
+  <p class="text-muted small mb-3">Prêt(e) à m'accueillir dans votre équipe ? Pour vous faire gagner du temps, voici mon dossier express :</p>
+  <div class="dossier-content">
+    <h5>Compétences Clés</h5>
+    <p>Angular | TypeScript | Node.js | SQL | Git</p>
+    <h5>Disponibilité Stage</h5>
+    <p>4 mois, à partir du 2 mars 2026</p>
+    <h5>Actions Rapides</h5>
+    <div class="d-flex gap-2 mt-2">
+      <a href="/assets/doc/CV.pdf" target="_blank" class="btn btn-primary btn-sm">📄 Télécharger CV</a>
+      <a href="mailto:mahssiniimane@gmail.com" class="btn btn-outline-pink btn-sm">✉️ Me contacter</a>
+    </div>
+  </div>
+</div>
+

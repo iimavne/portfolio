@@ -7,9 +7,9 @@
 /* Fond global pour toutes les pages */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: var(--pink-light); /* rose clair */
+  background-color: var(--pink-light);
   margin: 0;
-  padding: 0;
+  padding-top: 75px; /* Crée un espace pour la navbar */
 }
 
 /* Si tu as des sections avec bg-light ou autre, tu peux les uniformiser */
@@ -45,4 +45,54 @@ body, app-root {
 
 main {
   flex: 1; /* prend tout l’espace disponible */
+}
+girly-cursor {
+  /* On utilise un SVG pour le curseur pour ne pas dépendre d'un fichier image */
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="%23d63384"><path d="M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z"/></svg>'), auto;
+}
+
+/* 2. L'animation des nœuds papillon de fond */
+.bow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.bow {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  animation: float 20s infinite linear;
+  opacity: 0;
+}
+
+.bow::before, .bow::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #d63384;
+  border-radius: 50% 50% 0 50%;
+  transform: rotate(-45deg);
+}
+
+.bow::after {
+  transform: rotate(135deg);
+  border-radius: 50% 50% 50% 0;
+}
+
+.bow:nth-child(1) { left: 10%; animation-delay: 0s; }
+.bow:nth-child(2) { left: 20%; animation-delay: 2s; animation-duration: 17s; width: 20px; height: 20px;}
+.bow:nth-child(3) { left: 35%; animation-delay: 4s; }
+.bow:nth-child(4) { left: 50%; animation-delay: 1s; animation-duration: 22s; width: 10px; height: 10px;}
+.bow:nth-child(5) { left: 65%; animation-delay: 3s; }
+.bow:nth-child(6) { left: 75%; animation-delay: 6s; animation-duration: 18s; width: 25px; height: 25px;}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
 }

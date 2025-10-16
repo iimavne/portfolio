@@ -1,19 +1,12 @@
-/* Définition des couleurs pour une maintenance facile */
-:root {
-  --pink-color: #e91e63; /* Adaptez cette couleur si besoin */
-  --pink-light-bg: #fce4ec;
-  --pink-dark-text: #880e4f;
-}
-
-.skills-section {
-  background-color: #fdf8fa; /* Un fond très légèrement rosé */
+:host {
+  display: block;
+  background-color: #fdf8fa;
 }
 
 .text-pink {
-  color: var(--pink-color);
+  color: #d63384;
 }
 
-/* Style de la carte qui contient les compétences */
 .skill-card {
   background-color: #ffffff;
   padding: 2rem;
@@ -33,15 +26,14 @@
   margin-bottom: 1.5rem;
 }
 
-/* Grille pour aligner les icônes */
+/* Grille pour les logos de compétences techniques */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem; /* Espace entre les icônes */
+  gap: 1.5rem;
 }
 
-/* Style pour chaque compétence (icône + nom) */
 .skill-item {
   display: flex;
   flex-direction: column;
@@ -70,11 +62,33 @@
   font-size: 0.8rem;
 }
 
-/* Style pour les badges de la dernière carte */
+/* --- NOUVEAU : Styles pour la carte des langues --- */
+.language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.language-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 0.5rem;
+}
+
+.language-item:last-child {
+  border-bottom: none;
+}
+
+/* Style pour les badges (Compétences humaines, etc.) */
 .skill-badge {
-  background-color: var(--pink-light-bg);
-  color: var(--pink-dark-text);
+  background-color: #fce4ec;
+  color: #880e4f;
   font-weight: 500;
   font-size: 0.9rem;
   padding: 0.5em 1em;
 }
+

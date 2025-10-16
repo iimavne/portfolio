@@ -4,6 +4,11 @@
   --app-pink-light: #fbe6f2;
 }
 
+
+.text-pink {
+  color: #d63384 !important;
+}
+
 /* -- SECTION CONTACT -- */
 .contact-section {
   /* On applique le fond rose clair ici */
@@ -36,11 +41,6 @@
   color: var(--app-pink);
 }
 
-/* -- COLONNE DROITE (FORMULAIRE) -- */
-.text-pink {
-  color: var(--app-pink);
-}
-
 .form-control {
   border-radius: 8px;
   border: 1px solid #ced4da;
@@ -64,3 +64,135 @@
   background-color: #c22b74;
   border-color: #c22b74;
 }
+
+/* --- LE RUBAN FINAL --- */
+.hidden-ribbon-contact {
+  position: absolute;
+  top: 50%;
+  right: -20px; /* On le place un peu à l'extérieur du bouton */
+  transform: translateY(-50%);
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.1); }
+}
+
+/* --- LA CÉLÉBRATION FINALE --- */
+
+/* Conteneur pour les confettis */
+#confetti-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+/* Style d'un confetti */
+.confetti {
+  position: absolute;
+  top: -20px;
+  width: 10px;
+  height: 15px; /* Un peu plus rectangulaire */
+  background-color: #d63384;
+  opacity: 0.9;
+  /* MODIFIÉ : L'animation ne se joue qu'une fois et reste à son état final */
+  animation: fall 3s linear forwards;
+}
+
+/* Animation de chute des confettis */
+@keyframes fall {
+  to {
+    transform: translateY(105vh) rotate(720deg);
+    opacity: 0; /* Devient invisible à la fin */
+  }
+}
+
+/* Message de félicitations (inchangé) */
+.congrats-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+  background-color: white;
+  color: #d63384;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 10000;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  pointer-events: none;
+}
+
+.congrats-popup.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* --- NOUVEAU : Styles pour le Dossier Express du Recruteur --- */
+
+/* Le fond semi-transparent qui couvre toute la page */
+.dossier-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 9998;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Le pop-up (la carte) */
+.recruiter-dossier {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: popIn 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+/* Le bouton pour fermer (X) */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.close-btn:hover {
+  color: #333;
+}
+
+/* Styles internes du pop-up */
+.dossier-content h5 {
+  font-weight: 600;
+  color: var(--app-pink, #d63384);
+  margin-top: 1rem;
+}
+
+/* Animations d'apparition */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popIn { from { opacity: 0; transform: translate(-50%, -50%) scale(0.8); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+
+

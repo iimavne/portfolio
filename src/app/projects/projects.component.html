@@ -1,24 +1,24 @@
 <div class="container py-5">
   <h2 class="text-center mb-5 text-pink fw-bold">Mes Projets</h2>
 
+  <!-- NOUVEAU : Conteneur pour l'explosion d'étincelles sur cette page -->
+  <div id="sparkle-container-projects"></div>
+
   <div class="row g-4 justify-content-center">
-    <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects">
+    <!-- MODIFIÉ : On ajoute 'let last = last' pour identifier la dernière carte -->
+    <div class="col-12 col-md-6 col-lg-4" *ngFor="let project of projects; let last = last">
       <div class="card shadow-sm project-card h-100">
 
+        <!-- NOUVEAU : Le ruban caché, qui ne s'affiche que sur la dernière carte -->
+        <div *ngIf="last && shouldShowRibbon()" class="hidden-ribbon" (click)="findProjectsRibbon($event)">🎀</div>
+
+        <!-- Le reste de ta carte ne change pas -->
         <a [routerLink]="['/projects', project.id]">
           <img [src]="project.images[0]" class="card-img-top project-img" alt="Miniature du projet {{project.title}}">
         </a>
 
         <div class="card-body d-flex flex-column">
-          <h5 class="card-title fw-bold">{{project.title}}</h5>
-
-          <div class="tech-tags mb-3">
-            <span *ngFor="let tech of project.technologies" class="badge rounded-pill me-1">
-              {{ tech }}
-            </span>
-          </div>
-
-          <p class="card-text text-muted">{{project.shortDescription}}</p>
+        <p class="card-text text-muted">{{project.shortDescription}}</p>
 
           <div class="mt-auto d-flex justify-content-between align-items-center pt-3">
             <a [routerLink]="['/projects', project.id]" class="btn btn-primary rounded-pill px-4">

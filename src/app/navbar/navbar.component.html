@@ -1,16 +1,40 @@
-<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: #fde3ed; border-bottom:1px solid #f8c1d3;">
-  <div class="container-fluid"> <!-- changer container → container-fluid -->
-    <a class="navbar-brand text-pink fw-bold" routerLink="/">Portfolio</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-pink-light fixed-top shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold text-pink" routerLink="/">Portfolio</a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link text-pink" routerLink="/">Accueil</a></li>
-        <li class="nav-item"><a class="nav-link text-pink" routerLink="/projects">Projets</a></li>
-        <li class="nav-item"><a class="nav-link text-pink" routerLink="/competences">Mes competences</a></li>
-        <li class="nav-item"><a class="nav-link text-pink" routerLink="/contact">Contact</a></li>
+      <!-- On ajoute #navLinks et position-relative -->
+      <ul class="navbar-nav ms-auto align-items-center position-relative" #navLinks>
+
+        <!-- L'INDICATEUR MAGIQUE -->
+        <div class="magic-bow" #magicBow>🎀</div>
+
+        <!-- Tes liens de navigation -->
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/projects" routerLinkActive="active">Projets</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/competences" routerLinkActive="active">Mes compétences</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </li>
+
+        <!-- LE COMPTEUR DU JEU -->
+        <li class="nav-item ms-lg-3">
+          <div class="ribbon-counter">
+            Rubans : {{ foundCount$ | async }} / {{ totalRibbons }} 🎀
+          </div>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+

@@ -5,10 +5,61 @@
 }
 
 .project-card {
+  position: relative;
   border: none;
   border-radius: 15px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+}
+
+.hidden-ribbon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 10;
+  animation: pulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.hidden-ribbon:hover {
+  transform: scale(1.2);
+}
+
+/* NOUVEAU : On peut réutiliser l'animation de pulsation */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 4px rgba(214, 51, 132, 0.5));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 12px rgba(214, 51, 132, 0.9));
+  }
+}
+
+/* NOUVEAU : Styles pour les étincelles (identiques à la page d'accueil) */
+#sparkle-container-projects {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.sparkle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #d63384;
+  border-radius: 50%;
+  animation: explode 0.7s forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0); opacity: 0; }
 }
 
 .project-card:hover {

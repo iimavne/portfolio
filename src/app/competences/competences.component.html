@@ -1,9 +1,10 @@
 <section class="skills-section py-5">
   <div class="container">
-    <h2 class="text-center text-pink fw-semibold mb-5">Mes compétences</h2>
+    <h2 class="text-center mb-5 text-pink fw-bold">Mes Compétences</h2>
 
     <div class="row g-4 justify-content-center">
 
+      <!-- Carte Langages -->
       <div class="col-11 col-md-6 col-lg-5">
         <div class="skill-card h-100">
           <h3 class="text-pink fw-semibold">Langages</h3>
@@ -20,16 +21,20 @@
         </div>
       </div>
 
+      <!-- Carte Frameworks -->
       <div class="col-11 col-md-6 col-lg-5">
         <div class="skill-card h-100">
-          <h3 class="text-pink fw-semibold">Frameworks</h3>
+          <h3 class="text-pink fw-semibold">Frameworks & Environnements</h3>
           <div class="skills-grid">
+            <!-- CORRIGÉ : On utilise la bonne classe pour Angular -->
             <div class="skill-item"><i class="devicon-angularjs-plain colored"></i><small>Angular</small></div>
             <div class="skill-item"><i class="devicon-laravel-plain colored"></i><small>Laravel</small></div>
+            <div class="skill-item"><i class="devicon-nodejs-plain colored"></i><small>Node.js</small></div>
           </div>
         </div>
       </div>
 
+      <!-- Carte Outils -->
       <div class="col-11 col-md-6 col-lg-5">
         <div class="skill-card h-100">
           <h3 class="text-pink fw-semibold">CMS & Outils</h3>
@@ -42,25 +47,72 @@
         </div>
       </div>
 
+      <!-- Carte Bases de données -->
       <div class="col-11 col-md-6 col-lg-5">
         <div class="skill-card h-100">
           <h3 class="text-pink fw-semibold">Bases de données & BI</h3>
           <div class="skills-grid">
             <div class="skill-item"><i class="devicon-mysql-plain colored"></i><small>MySQL / SQL</small></div>
-            <div class="skill-item"><img src="assets/logos/powerbi.svg.png" class="skill-logo"><small>Power BI</small></div>
-            <div class="skill-item"><img src="assets/logos/access.svg.png" class="skill-logo"><small>Access</small></div>
-            <div class="skill-item"><img src="assets/logos/excel.svg.png" class="skill-logo"><small>Excel</small></div>
+            <div class="skill-item"><img src="assets/logos/powerbi.svg.png" class="skill-logo" alt="Power BI Logo"><small>Power BI</small></div>
+            <div class="skill-item"><img src="assets/logos/excel.svg.png" class="skill-logo" alt="Excel Logo"><small>Excel</small></div>
           </div>
         </div>
       </div>
 
+      <!-- Carte Langues (MODIFIÉE AVEC LES ICÔNES) -->
+      <div class="col-11 col-md-6 col-lg-5">
+        <div class="skill-card h-100">
+          <h3 class="text-pink fw-semibold">Langues</h3>
+          <div class="language-list">
+            <div class="language-item">
+              <div class="d-flex align-items-center gap-3">
+                <!-- On remplace 🇫🇷 par une icône -->
+                <span class="fi fi-fr fis"></span>
+                <span>Français</span>
+              </div>
+              <small class="text-muted">Langue maternelle</small>
+            </div>
+            <div class="language-item">
+              <div class="d-flex align-items-center gap-3">
+                <!-- On remplace 🇬🇧 par une icône -->
+                <span class="fi fi-gb fis"></span>
+                <span>Anglais</span>
+              </div>
+              <small class="text-muted">Courant (C1)</small>
+            </div>
+            <div class="language-item">
+              <div class="d-flex align-items-center gap-3">
+                <!-- On remplace 🇲🇦 par une icône -->
+                <span class="fi fi-ma fis"></span>
+                <span>Arabe (Marocain)</span>
+              </div>
+              <small class="text-muted">Langue maternelle</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte Compétences Humaines -->
+      <div class="col-11 col-md-6 col-lg-5">
+        <div class="skill-card h-100">
+          <h3 class="text-pink fw-semibold">Compétences Humaines</h3>
+          <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
+            <span class="badge skill-badge">Travail d'équipe</span>
+            <span class="badge skill-badge">Autonomie</span>
+            <span class="badge skill-badge">Curiosité</span>
+            <span class="badge skill-badge">Résolution de problèmes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOUVEAU : Carte Méthodologies -->
       <div class="col-11 col-md-10 col-lg-10">
         <div class="skill-card text-center">
-          <h3 class="text-pink fw-semibold">Autres / Méthodologies</h3>
+          <h3 class="text-pink fw-semibold">Méthodologies</h3>
           <div class="d-flex flex-wrap justify-content-center gap-2 mt-3">
-            <span class="badge skill-badge">Méthodologies Agile</span>
-            <span class="badge skill-badge">Test Unitaire</span>
-            <span class="badge skill-badge">Test Driven Development</span>
+            <span class="badge skill-badge">Méthodologies Agile (Scrum)</span>
+            <span class="badge skill-badge">Test Unitaire & TDD</span>
+            <span class="badge skill-badge">Analyse des besoins</span>
           </div>
         </div>
       </div>
@@ -68,3 +120,4 @@
     </div>
   </div>
 </section>
+

@@ -1,31 +1,23 @@
 <section class="hero d-flex flex-column justify-content-center align-items-center text-center vh-100 bg-pink-light position-relative">
+  <!-- On appelle la nouvelle fonction findHomeRibbon -->
+  <div id="magic-bow" (click)="findHomeRibbon($event)">🎀</div>
+  <div id="sparkle-container"></div>
 
   <h1 class="fw-bold text-pink mb-2">👩‍💻 Imane Mahssini</h1>
-
-  <p class="lead text-muted mb-1">
-    Étudiante en BUT Informatique – <span id="typed-text"></span>
-  </p>
-
-  <p class="lead text-muted w-75 mx-auto">
-    Curieuse et motivée, je me suis naturellement tournée vers l’informatique pour relever des défis techniques et créer des applications utiles et accessibles à tous.
-  </p>
-
-  <p class="lead mt-4">
-    <b>🚀 En recherche active d'un stage de 4 mois à partir du 2 mars 2026.</b><br>
+  <p class="lead text-muted mb-1">Étudiante en BUT Informatique – <span id="typed-text"></span></p>
+  <p class="lead text-muted w-75 mx-auto">Curieuse et motivée...</p>
+  <p class="lead mt-4"><b>🚀 En recherche active de stage...</b><br>
     Et si je rejoignais votre équipe ? <a href="/contact" class="text-pink fw-bold text-decoration-none">Parlons-en !</a>
   </p>
-
   <div class="d-flex flex-column flex-sm-row gap-3 mt-4">
-    <a class="btn btn-primary btn-lg rounded-pill shadow-sm px-4" href="/assets/doc/CV.pdf" target="_blank">
-      📄 Télécharger mon CV
-    </a>
-    <a class="btn btn-outline-dark btn-lg rounded-pill px-4" routerLink="/projects">
-      Voir mes projets
-    </a>
+    <a class="btn btn-primary btn-lg rounded-pill shadow-sm px-4" href="/assets/doc/CV.pdf" target="_blank">📄 Télécharger mon CV</a>
+    <a class="btn btn-outline-pink btn-lg rounded-pill px-4" routerLink="/projects">Voir mes projets</a>
   </div>
 
+  <!-- MODIFIÉ : Le lien pointe maintenant vers l'ID #footer -->
   <div class="scroll-down-arrow">
-    <a href="#projects"><span></span></a>
+    <a href="#footer"><span></span></a>
   </div>
 
 </section>
+
